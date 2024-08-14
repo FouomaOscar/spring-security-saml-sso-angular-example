@@ -1,0 +1,17 @@
+<div class="container d-flex align-items-center justify-content-center">
+    <div>
+        <div class="align-items-center" style="margin-top: 20vh;">
+            <div style="margin: 10px 0;">
+                <span>Username:</span>
+                <span *ngIf="user"> {{user.username}} </span>
+            </div>
+            <div style="margin: 10px 0;">
+                <span>First name:</span>
+                <span *ngIf="user"> {{user.firstName}} </span>
+            </div>
+            <div>
+                <button (click)="logout()" class="btn btn-primary">Se deconnecter</button>
+            </div>
+        </div>
+    </div>
+</div>

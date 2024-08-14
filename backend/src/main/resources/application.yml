@@ -1,0 +1,29 @@
+spring:
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          okta:
+            signing:
+              credentials:
+                - private-key-location: classpath:local.key
+                  certificate-location: classpath:local.crt
+            singlelogout:
+              url: <URL>
+              binding: POST
+              response-url: "{baseUrl}/logout/saml2/slo"
+            assertingparty:
+              metadata-uri: "classpath:metadata/metadata-idp-okta.xml"
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/auth_management_system?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
+    password: <DATABASE_PASSWORD>
+  jpa:
+    hibernate:
+      ddl-auto: update
+easyup:
+  app:
+    jwtAccessExpirationMs: '7200000'
+    jwtRefreshTokenExpirationMs: '86400000'
+    jwtSecret: <YOUR_JWT_SECRET>
+
